@@ -2,7 +2,7 @@
 import './App.css';
 
 import { useState, useEffect } from 'react';
-import { AppConfig } from './configs/config';
+import { AppConfig } from './configs/AppConfig';
 import axios from 'axios';
 import TodoInput from "./components/todo/TodoInput";
 import TodoItem from "./components/todo/TodoItem";
@@ -23,7 +23,7 @@ function App() {
       .then((response) => {
         let items = [];
         response.data.results.map((item) => {
-          items.push({ todo: item.name, complete: false });
+          return items.push({ todo: item.name, complete: false });
         });
 
         setTodos(items);
